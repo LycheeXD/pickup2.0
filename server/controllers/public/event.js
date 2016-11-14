@@ -11,7 +11,7 @@ module.exports = (function(){
   var searchRadius = 5;
 
     router.get('/', function(req, res) {
-      console.log("REQUEST: ", req.query);
+      console.log("DEFAULT SEARCH: ", req.query);
       
       var location = JSON.parse(req.query.location)
 
@@ -41,7 +41,17 @@ module.exports = (function(){
       })
     })
 
-    // router.get('/:radius')
+    router.get('/radius/:radius', function(req, res) {
+      console.log("QUERY: ", req.query, "PARAMS: ", req.params);
+      Events.findAll()
+      .then(function(events) {
+        res.json(events)
+        console.log('success');
+      })
+      .catch(function(error) {
+        res.status(500).json(error);
+      })
+    })
 
 
     router.post('/', function(req, res) {

@@ -48,13 +48,13 @@ export const searchEvents = (props) => {
   }
 }
 
-export const getRadius = (radius, coord) => {
+export const getRadius = (radius, location) => {
   return(dispatch) => {
     dispatch({
       type: EVENT_RADIUS,
       payload: radius
     })
-    return fetch('/api/events/', {
+    return fetch('/api/events/radius/' + radius + '?location=' + JSON.stringify(location), {
       method: "GET",
       headers: {
         'Content-Type': 'application/json'

@@ -10,7 +10,7 @@ class SearchRadius extends Component {
   render() {
     return (
       <ButtonToolbar id="dropdown">
-        <DropdownButton  title={this.props.radius ? this.props.radius : "Search Radius"} noCaret id="dropdown-no-caret" onSelect={(eventKey) => {this.props.getRadius(eventKey)}}>
+        <DropdownButton  title={this.props.radius ? this.props.radius + " Miles Radius" : "Search Radius"} noCaret id="dropdown-no-caret" onSelect={(eventKey) => {this.props.getRadius(eventKey, this.props.coord)}}>
           <MenuItem eventKey={5}>5 Miles</MenuItem>
           <MenuItem eventKey={10}>10 Miles</MenuItem>
           <MenuItem eventKey={20}>20 Miles</MenuItem>
